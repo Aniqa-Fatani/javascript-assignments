@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Chapters 21-25 Assignments</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        body {
+            background-color: #f4f7f6;
+            padding: 20px;
+            color: #333;
+        }
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 30px;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 20px;
+        }
+        .card {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            border: 1px solid #e0e0e0;
+        }
+        .card h3 {
+            margin-top: 0;
+            color: #3498db;
+            font-size: 1.1rem;
+        }
+        .card p {
+            font-size: 0.95rem;
+            color: #555;
+            margin-bottom: 12px;
+        }
+        input {
+            width: 100%;
+            padding: 8px 12px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 0.9rem;
+        }
+        button {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+            font-weight: bold;
+            transition: background 0.2s;
+        }
+        button:hover {
+            background-color: #2980b9;
+        }
+        .output {
+            margin-top: 15px;
+            padding: 10px;
+            background-color: #f8f9fa;
+            border-left: 4px solid #3498db;
+            font-size: 0.9rem;
+            line-height: 1.5;
+            word-wrap: break-word;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>JavaScript Chapters 21–25: String Methods</h1>
+
+    <div class="container">
+
+        <!-- Question 1 -->
+        <div class="card">
+            <h3>Q1. Greet User</h3>
+            <p>Merges first name and last name to form full name.</p>
+            <input type="text" id="q1_first" placeholder="First Name">
+            <input type="text" id="q1_last" placeholder="Last Name">
+            <button onclick="solveQ1()">Run Code</button>
+            <div id="out1" class="output" style="display:none;"></div>
+        </div>
+
+        <!-- Question 2 -->
+        <div class="card">
+            <h3>Q2. Phone Model Length</h3>
+            <p>Finds length of favorite mobile phone model.</p>
+            <input type="text" id="q2_phone" placeholder="e.g., Samsung Galaxy S21 Ultra">
+            <button onclick="solveQ2()">Run Code</button>
+            <div id="out2" class="output" style="display:none;"></div>
+        </div>
+
+        <!-- Question 3 -->
+        <div class="card">
+            <h3>Q3. Index of 'n'</h3>
+            <p>Finds index of letter 'n' in word "Pakistani".</p>
+            <button onclick="solveQ3()">Run Code</button>
+            <div id="out3" class="output" style="display:none;"></div>
+        </div>
+
+        <!-- Question 4 -->
+        <div class="card">
+            <h3>Q4. Last Index of 'l'</h3>
+            <p>Finds last index of letter 'l' in "Hello World".</p>
+            <button onclick="solveQ4()">Run Code</button>
+            <div id="out4" class="output" style="display:none;"></div>
+        </div>
+
+        <!-- Question 5 -->
+        <div class="card">
+            <h3>Q5. Character at 3rd Index</h3>
+            <p>Finds character at index 3 in "Pakistani".</p>
+            <button onclick="solveQ5()">Run Code</button>
+            <div id="out5" class="output" style="display:none;"></div>
+        </div>
+
+        <!-- Question 6 -->
+        <div class="card">
+            <h3>Q6. Merge Names using concat()</h3>
+            <p>Merges first and last name using JavaScript <code>concat()</code>.</p>
+            <input type="text" id="q6_first" placeholder="First Name">
+            <input type="text" id="q6_last" placeholder="Last Name">
+            <button onclick="solveQ6()">Run Code</button>
+            <div id="out6" class="output" style="display:none;"></div>
+        </div>
+
+        <!-- Question 7 -->
+        <div class="card">
+            <h3>Q7. Replace String Part</h3>
+            <p>Replaces "Hyder" with "Islam" in word "Hyderabad".</p>
+            <button onclick="solveQ7()">Run Code</button>
+            <div id="out7" class="output" style="display:none;"></div>
+        </div>
+
+        <!-- Question 8 -->
+        <div class="card">
+            <h3>Q8. Replace All 'and'</h3>
+            <p>Replaces all occurrences of "and" with "&".</p>
+            <button onclick="solveQ8()">Run Code</button>
+            <div id="out8" class="output" style="display:none;"></div>
+        </div>
+
+        <!-- Question 9 -->
+        <div class="card">
+            <h3>Q9. Convert String to Number</h3>
+            <p>Converts string "472" to a numerical value.</p>
+            <button onclick="solveQ9()">Run Code</button>
+            <div id="out9" class="output" style="display:none;"></div>
+        </div>
+
+        <!-- Question 10 -->
+        <div class="card">
+            <h3>Q10. Capitalize Input</h3>
+            <p>Converts input string into capital letters (UPPERCASE).</p>
+            <input type="text" id="q10_text" placeholder="e.g., peanuts">
+            <button onclick="solveQ10()">Run Code</button>
+            <div id="out10" class="output" style="display:none;"></div>
+        </div>
+
+        <!-- Question 11 -->
+        <div class="card">
+            <h3>Q11. Title Case Conversion</h3>
+            <p>Converts user input into Title Case.</p>
+            <input type="text" id="q11_text" placeholder="e.g., javascript">
+            <button onclick="solveQ11()">Run Code</button>
+            <div id="out11" class="output" style="display:none;"></div>
+        </div>
+
+        <!-- Question 12 -->
+        <div class="card">
+            <h3>Q12. Number to String Dot Removal</h3>
+            <p>Converts 35.36 to string and removes decimal point.</p>
+            <button onclick="solveQ12()">Run Code</button>
+            <div id="out12" class="output" style="display:none;"></div>
+        </div>
+
+        <!-- Question 13 -->
+        <div class="card">
+            <h3>Q13. Username Validation</h3>
+            <p>Ensures username contains no special characters [@, ., ,, !].</p>
+            <input type="text" id="q13_user" placeholder="Enter username">
+            <button onclick="solveQ13()">Run Code</button>
+            <div id="out13" class="output" style="display:none;"></div>
+        </div>
+
+        <!-- Question 14 -->
+        <div class="card">
+            <h3>Q14. Bakery Item Search</h3>
+            <p>Performs case-insensitive search in bakery list.</p>
+            <input type="text" id="q14_item" placeholder="e.g., Cookie, CAKE, chips">
+            <button onclick="solveQ14()">Run Code</button>
+            <div id="out14" class="output" style="display:none;"></div>
+        </div>
+
+        <!-- Question 15 -->
+        <div class="card">
+            <h3>Q15. Password Validation</h3>
+            <p>Validates password rules (alphanumeric, min 6 chars, no starting digit).</p>
+            <input type="text" id="q15_pass" placeholder="Enter password">
+            <button onclick="solveQ15()">Run Code</button>
+            <div id="out15" class="output" style="display:none;"></div>
+        </div>
+
+        <!-- Question 16 -->
+        <div class="card">
+            <h3>Q16. Split String to Array</h3>
+            <p>Splits "University of Karachi" into array elements vertically.</p>
+            <button onclick="solveQ16()">Run Code</button>
+            <div id="out16" class="output" style="display:none;"></div>
+        </div>
+
+        <!-- Question 17 -->
+        <div class="card">
+            <h3>Q17. Last Character Display</h3>
+            <p>Displays last character of user input.</p>
+            <input type="text" id="q17_text" placeholder="e.g., Pakistan">
+            <button onclick="solveQ17()">Run Code</button>
+            <div id="out17" class="output" style="display:none;"></div>
+        </div>
+
+        <!-- Question 18 -->
+        <div class="card">
+            <h3>Q18. Count Word Occurrences</h3>
+            <p>Counts occurrences of word "the" in a sentence.</p>
+            <button onclick="solveQ18()">Run Code</button>
+            <div id="out18" class="output" style="display:none;"></div>
+        </div>
+
+    </div>
+
+    <!-- Linking external JavaScript file -->
+    <script src="script.js"></script>
+</body>
+</html>
