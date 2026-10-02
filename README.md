@@ -15,6 +15,8 @@ a clean and modular digital archive of JavaScript solutions covering core progra
 | **chapter-12-to-13** | testing sets of conditions | [view code](./chapter-12 to 13/) |
 | **chapter-14-to-16** | arrays & operations | [view code](./chapter-14 to 16/) |
 | **chapter-17-to-20** | arrays, multidimensional arrays & loops | [view code](./chapter-17 to 20/) |
+| chapter-21-to-25 | string methods | [view code](./chapter-21%20to%2025/) |
+| chapter-26-to-30 | math methods | [view code](./chapter-26%20to%2030/) |
 
 ---
 ## 🛠️ tech stack
