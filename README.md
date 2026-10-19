@@ -18,6 +18,8 @@ a clean and modular digital archive of JavaScript solutions covering core progra
 | chapter-21-to-25 | string methods | [view code](./chapter-21%20to%2025/) |
 | chapter-26-to-30 | math methods | [view code](./chapter-26%20to%2030/) |
 | chapter-31-to-34 | date methods | [view code](./chapter-31%20to%2034) |
+| chapter-35-to-38 | functions | [view code](./chapter-35%20to%2038) |
+| chapter-38-to-42 | functions, switch statements, while & do-while loops | [view code](./chapter-38%20to%2042) |
 
 ---
 ## 🛠️ tech stack
