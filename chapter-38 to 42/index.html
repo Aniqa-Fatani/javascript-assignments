@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Chapters 38-42 Assignments</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        body {
+            background-color: #f4f7f6;
+            padding: 20px;
+            color: #333;
+        }
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 30px;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 20px;
+        }
+        .card {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            border: 1px solid #e0e0e0;
+        }
+        .card h3 {
+            margin-top: 0;
+            color: #3498db;
+            font-size: 1.1rem;
+        }
+        .card p {
+            font-size: 0.95rem;
+            color: #555;
+            margin-bottom: 12px;
+        }
+        input {
+            width: 100%;
+            padding: 8px 12px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 0.9rem;
+        }
+        button {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+            font-weight: bold;
+            transition: background 0.2s;
+        }
+        button:hover {
+            background-color: #2980b9;
+        }
+        .output {
+            margin-top: 15px;
+            padding: 10px;
+            background-color: #f8f9fa;
+            border-left: 4px solid #3498db;
+            font-size: 0.9rem;
+            line-height: 1.5;
+            word-wrap: break-word;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>JavaScript Chapters 38–42: Functions, Switch, Loops</h1>
+
+    <div class="container">
+
+        <!-- Q1 -->
+        <div class="card">
+            <h3>Q1. Custom Power Function</h3>
+            <p>Calculate the value of a raised to b ($a^b$).</p>
+            <input type="number" id="q1_a" placeholder="Enter base (a)">
+            <input type="number" id="q1_b" placeholder="Enter exponent (b)">
+            <button onclick="solveQ1()">Run Code</button>
+            <div id="out1" class="output" style="display:none;"></div>
+        </div>
+
+        <!-- Q2 -->
+        <div class="card">
+            <h3>Q2. Leap Year Checker</h3>
+            <p>Determine whether an entered year is a leap year.</p>
+            <input type="number" id="q2_year" placeholder="Enter year (e.g., 2024)">
+            <button onclick="solveQ2()">Run Code</button>
+            <div id="out2" class="output" style="display:none;"></div>
+        </div>
+
+        <!-- Q3 -->
+        <div class="card">
+            <h3>Q3. Triangle Area Calculator</h3>
+            <p>Calculate area using sides $a, b, c$ with two functions.</p>
+            <input type="number" id="q3_a" placeholder="Side a">
+            <input type="number" id="q3_b" placeholder="Side b">
+            <input type="number" id="q3_c" placeholder="Side c">
+            <button onclick="solveQ3()">Run Code</button>
+            <div id="out3" class="output" style="display:none;"></div>
+        </div>
+
+        <!-- Q4 -->
+        <div class="card">
+            <h3>Q4. Student Marks & Percentage</h3>
+            <p>Calculate average and percentage across 3 subjects using nested functions.</p>
+            <input type="number" id="q4_m1" placeholder="Marks Subject 1">
+            <input type="number" id="q4_m2" placeholder="Marks Subject 2">
+            <input type="number" id="q4_m3" placeholder="Marks Subject 3">
+            <button onclick="solveQ4()">Run Code</button>
+            <div id="out4" class="output" style="display:none;"></div>
+        </div>
+
+        <!-- Q5 -->
+        <div class="card">
+            <h3>Q5. Custom indexOf Function</h3>
+            <p>Custom function replicating <code>indexOf</code> for a character.</p>
+            <input type="text" id="q5_str" placeholder="Enter string">
+            <input type="text" id="q5_char" placeholder="Character to find" maxlength="1">
+            <button onclick="solveQ5()">Run Code</button>
+            <div id="out5" class="output" style="display:none;"></div>
+        </div>
+
+        <!-- Q6 -->
+        <div class="card">
+            <h3>Q6. Remove Vowels</h3>
+            <p>Delete all vowels from a sentence (max 25 characters).</p>
+            <input type="text" id="q6_str" placeholder="Enter sentence (max 25 chars)" maxlength="25">
+            <button onclick="solveQ6()">Run Code</button>
+            <div id="out6" class="output" style="display:none;"></div>
+        </div>
+
+        <!-- Q7 -->
+        <div class="card">
+            <h3>Q7. Successive Vowels Counter</h3>
+            <p>Count occurrences of any two vowels in succession using switch statements.</p>
+            <input type="text" id="q7_str" placeholder="Enter text (e.g., Please read this)">
+            <button onclick="solveQ7()">Run Code</button>
+            <div id="out7" class="output" style="display:none;"></div>
+        </div>
+
+        <!-- Q8 -->
+        <div class="card">
+            <h3>Q8. Distance Converter</h3>
+            <p>Convert distance between two cities (in km) to meters, feet, inches, and cm.</p>
+            <input type="number" id="q8_km" placeholder="Distance in km">
+            <button onclick="solveQ8()">Run Code</button>
+            <div id="out8" class="output" style="display:none;"></div>
+        </div>
+
+        <!-- Q9 -->
+        <div class="card">
+            <h3>Q9. Overtime Pay Calculator</h3>
+            <p>Calculate overtime pay at Rs. 12.00/hr for hours worked above 40 hours.</p>
+            <input type="number" id="q9_hours" placeholder="Total hours worked">
+            <button onclick="solveQ9()">Run Code</button>
+            <div id="out9" class="output" style="display:none;"></div>
+        </div>
+
+        <!-- Q10 -->
+        <div class="card">
+            <h3>Q10. Cashier Currency Denominations</h3>
+            <p>Calculate currency notes of 100, 50, and 10 for withdrawal amount.</p>
+            <input type="number" id="q10_amount" placeholder="Enter amount to withdraw (e.g., 470)">
+            <button onclick="solveQ10()">Run Code</button>
+            <div id="out10" class="output" style="display:none;"></div>
+        </div>
+
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

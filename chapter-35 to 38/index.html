@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Chapters 35-38 Assignments</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        body {
+            background-color: #f4f7f6;
+            padding: 20px;
+            color: #333;
+        }
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 30px;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 20px;
+        }
+        .card {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            border: 1px solid #e0e0e0;
+        }
+        .card h3 {
+            margin-top: 0;
+            color: #3498db;
+            font-size: 1.1rem;
+        }
+        .card p {
+            font-size: 0.95rem;
+            color: #555;
+            margin-bottom: 12px;
+        }
+        input {
+            width: 100%;
+            padding: 8px 12px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 0.9rem;
+        }
+        button {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+            font-weight: bold;
+            transition: background 0.2s;
+        }
+        button:hover {
+            background-color: #2980b9;
+        }
+        .output {
+            margin-top: 15px;
+            padding: 10px;
+            background-color: #f8f9fa;
+            border-left: 4px solid #3498db;
+            font-size: 0.9rem;
+            line-height: 1.5;
+            word-wrap: break-word;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>JavaScript Chapters 35–38: Functions</h1>
+
+    <div class="container">
+
+        <!-- Q1 -->
+        <div class="card">
+            <h3>Q1. Current Date & Time</h3>
+            <p>Function that displays current date & time.</p>
+            <button onclick="solveQ1()">Run Code</button>
+            <div id="out1" class="output" style="display:none;"></div>
+        </div>
+
+        <!-- Q2 -->
+        <div class="card">
+            <h3>Q2. Greet User</h3>
+            <p>Takes first and last name and greets full name.</p>
+            <input type="text" id="q2_first" placeholder="First Name">
+            <input type="text" id="q2_last" placeholder="Last Name">
+            <button onclick="solveQ2()">Run Code</button>
+            <div id="out2" class="output" style="display:none;"></div>
+        </div>
+
+        <!-- Q3 -->
+        <div class="card">
+            <h3>Q3. Add Two Numbers</h3>
+            <p>Adds two numbers entered by user and returns sum.</p>
+            <input type="number" id="q3_num1" placeholder="First Number">
+            <input type="number" id="q3_num2" placeholder="Second Number">
+            <button onclick="solveQ3()">Run Code</button>
+            <div id="out3" class="output" style="display:none;"></div>
+        </div>
+
+        <!-- Q4 -->
+        <div class="card">
+            <h3>Q4. Calculator</h3>
+            <p>Takes num1, num2, and operator (+, -, *, /) and computes result.</p>
+            <input type="number" id="q4_num1" placeholder="Number 1">
+            <input type="number" id="q4_num2" placeholder="Number 2">
+            <input type="text" id="q4_op" placeholder="Operator (+, -, *, /)">
+            <button onclick="solveQ4()">Run Code</button>
+            <div id="out4" class="output" style="display:none;"></div>
+        </div>
+
+        <!-- Q5 -->
+        <div class="card">
+            <h3>Q5. Square Argument</h3>
+            <p>Computes the square of a given number.</p>
+            <input type="number" id="q5_num" placeholder="Enter a number">
+            <button onclick="solveQ5()">Run Code</button>
+            <div id="out5" class="output" style="display:none;"></div>
+        </div>
+
+        <!-- Q6 -->
+        <div class="card">
+            <h3>Q6. Factorial Calculator</h3>
+            <p>Computes the factorial of a number.</p>
+            <input type="number" id="q6_num" placeholder="Enter a number">
+            <button onclick="solveQ6()">Run Code</button>
+            <div id="out6" class="output" style="display:none;"></div>
+        </div>
+
+        <!-- Q7 -->
+        <div class="card">
+            <h3>Q7. Display Counting</h3>
+            <p>Takes start and end numbers and displays counting.</p>
+            <input type="number" id="q7_start" placeholder="Start Number">
+            <input type="number" id="q7_end" placeholder="End Number">
+            <button onclick="solveQ7()">Run Code</button>
+            <div id="out7" class="output" style="display:none;"></div>
+        </div>
+
+        <!-- Q8 -->
+        <div class="card">
+            <h3>Q8. Hypotenuse Calculator</h3>
+            <p>Calculates hypotenuse using nested functions (Base & Perpendicular).</p>
+            <input type="number" id="q8_base" placeholder="Base">
+            <input type="number" id="q8_perp" placeholder="Perpendicular">
+            <button onclick="solveQ8()">Run Code</button>
+            <div id="out8" class="output" style="display:none;"></div>
+        </div>
+
+        <!-- Q9 -->
+        <div class="card">
+            <h3>Q9. Rectangle Area</h3>
+            <p>Calculates area of a rectangle (Width * Height).</p>
+            <input type="number" id="q9_width" placeholder="Width">
+            <input type="number" id="q9_height" placeholder="Height">
+            <button onclick="solveQ9()">Run Code</button>
+            <div id="out9" class="output" style="display:none;"></div>
+        </div>
+
+        <!-- Q10 -->
+        <div class="card">
+            <h3>Q10. Palindrome Check</h3>
+            <p>Checks whether a passed string is a palindrome.</p>
+            <input type="text" id="q10_str" placeholder="Enter word (e.g., madam)">
+            <button onclick="solveQ10()">Run Code</button>
+            <div id="out10" class="output" style="display:none;"></div>
+        </div>
+
+        <!-- Q11 -->
+        <div class="card">
+            <h3>Q11. Capitalize Words</h3>
+            <p>Converts first letter of each word to uppercase.</p>
+            <input type="text" id="q11_str" placeholder="e.g., the quick brown fox">
+            <button onclick="solveQ11()">Run Code</button>
+            <div id="out11" class="output" style="display:none;"></div>
+        </div>
+
+        <!-- Q12 -->
+        <div class="card">
+            <h3>Q12. Longest Word</h3>
+            <p>Finds the longest word within a string.</p>
+            <input type="text" id="q12_str" placeholder="e.g., Web Development Tutorial">
+            <button onclick="solveQ12()">Run Code</button>
+            <div id="out12" class="output" style="display:none;"></div>
+        </div>
+
+        <!-- Q13 -->
+        <div class="card">
+            <h3>Q13. Letter Occurrence Counter</h3>
+            <p>Counts occurrences of a specific letter in a string.</p>
+            <input type="text" id="q13_str" placeholder="String (e.g., JSResourcEs.com)">
+            <input type="text" id="q13_char" placeholder="Letter to count (e.g., o)" maxlength="1">
+            <button onclick="solveQ13()">Run Code</button>
+            <div id="out13" class="output" style="display:none;"></div>
+        </div>
+
+        <!-- Q14 -->
+        <div class="card">
+            <h3>Q14. The Geometrizer</h3>
+            <p>Calculates circle circumference and area based on radius.</p>
+            <input type="number" id="q14_radius" placeholder="Enter radius">
+            <button onclick="solveQ14()">Run Code</button>
+            <div id="out14" class="output" style="display:none;"></div>
+        </div>
+
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
