@@ -20,6 +20,9 @@ a clean and modular digital archive of JavaScript solutions covering core progra
 | chapter-31-to-34 | date methods | [view code](./chapter-31%20to%2034) |
 | chapter-35-to-38 | functions | [view code](./chapter-35%20to%2038) |
 | chapter-38-to-42 | functions, switch statements, while & do-while loops | [view code](./chapter-38%20to%2042) |
+| chapter-43-to-48 | events | [view code](./chapter-43%20to%2048) |
+| calculator-app | premium calculator app with advanced math toolkit & history | [view code](./calculator-app) |
+| counter-app | interactive counter app with state management & live clock | [view code](./counter-app) |
 
 ---
 ## 🛠️ tech stack
