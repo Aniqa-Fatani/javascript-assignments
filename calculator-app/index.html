@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator Studio </title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="calculator-container">
+        <!-- Header -->
+        <header class="calc-header">
+            <span class="badge">SMIT Assignment #10</span>
+            <h1>Calculator Studio</h1>
+            <p id="live-time" class="time-display">Loading date...</p>
+        </header>
+
+        <!-- Display Screen -->
+        <div class="screen">
+            <div id="history-screen" class="history-screen"></div>
+            <div id="main-screen" class="main-screen">0</div>
+        </div>
+
+        <!-- Keypad Grid -->
+        <div class="keypad">
+            <button class="btn btn-action" onclick="clearScreen()">AC</button>
+            <button class="btn btn-action" onclick="deleteChar()">⌫</button>
+            <button class="btn btn-operator" onclick="appendOperator('%')">%</button>
+            <button class="btn btn-operator" onclick="appendOperator('/')">÷</button>
+
+            <button class="btn btn-num" onclick="appendNumber('7')">7</button>
+            <button class="btn btn-num" onclick="appendNumber('8')">8</button>
+            <button class="btn btn-num" onclick="appendNumber('9')">9</button>
+            <button class="btn btn-operator" onclick="appendOperator('*')">×</button>
+
+            <button class="btn btn-num" onclick="appendNumber('4')">4</button>
+            <button class="btn btn-num" onclick="appendNumber('5')">5</button>
+            <button class="btn btn-num" onclick="appendNumber('6')">6</button>
+            <button class="btn btn-operator" onclick="appendOperator('-')">−</button>
+
+            <button class="btn btn-num" onclick="appendNumber('1')">1</button>
+            <button class="btn btn-num" onclick="appendNumber('2')">2</button>
+            <button class="btn btn-num" onclick="appendNumber('3')">3</button>
+            <button class="btn btn-operator" onclick="appendOperator('+')">+</button>
+
+            <button class="btn btn-num zero" onclick="appendNumber('0')">0</button>
+            <button class="btn btn-num" onclick="appendNumber('.')">.</button>
+            <button class="btn btn-equal" onclick="calculateResult()">=</button>
+        </div>
+
+        <!-- Advanced Math Toolkit (Functions & Math Methods Ch. 26-42) -->
+        <div class="advanced-panel">
+            <h3>Advanced Math Toolkit</h3>
+            <div class="adv-grid">
+                <button class="btn btn-adv" onclick="applyAdvanced('square')">x² (Square)</button>
+                <button class="btn btn-adv" onclick="applyAdvanced('sqrt')">√x (Square Root)</button>
+                <button class="btn btn-adv" onclick="applyAdvanced('factorial')">x! (Factorial)</button>
+                <button class="btn btn-adv" onclick="applyAdvanced('cube')">x³ (Cube)</button>
+            </div>
+        </div>
+
+        <!-- Calculation History Table (Ch. 43-48 Events & Deletion) -->
+        <div class="history-section">
+            <div class="history-header">
+                <h3>Calculation History</h3>
+                <button class="btn-clear-all" onclick="clearAllHistory()">Clear All</button>
+            </div>
+            <div class="table-container">
+                <table id="calc-table">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Time</th>
+                            <th>Expression</th>
+                            <th>Result</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="history-body">
+                        <!-- Dynamic Rows -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
