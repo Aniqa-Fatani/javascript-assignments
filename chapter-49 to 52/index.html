@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapters 49-52: Events & Form Handling</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="main-container">
+        <header class="app-header">
+            <span class="badge">SMIT Assignment</span>
+            <h1>JavaScript Chapters 49–52</h1>
+            <p>Events, Form Submissions, Read More & Editable Tables</p>
+        </header>
+
+        <!-- Question 1: Signup Form & Display Data -->
+        <section class="card">
+            <h3>Q1. Signup Form & Data Display[span_2](start_span)[span_2](end_span)</h3>
+            <form id="signupForm" onsubmit="handleSignup(event)">
+                <div class="form-row">
+                    <input type="text" id="suName" placeholder="Full Name" required>
+                    <input type="email" id="suEmail" placeholder="Email Address" required>
+                </div>
+                <div class="form-row">
+                    <input type="password" id="suPass" placeholder="Password" required>
+                    <input type="text" id="suPhone" placeholder="Phone Number">
+                </div>
+                <button type="submit" class="btn btn-primary">Submit Form</button>
+            </form>
+            <div id="signupOutput" class="output-box" style="display:none;">
+                <h4>Submitted Information:</h4>
+                <p id="resName"></p>
+                <p id="resEmail"></p>
+                <p id="resPhone"></p>
+            </div>
+        </section>
+
+        <!-- Question 2: Read More / Read Less Content -->
+        <section class="card">
+            <h3>Q2. Read More Content Expansion[span_3](start_span)[span_3](end_span)</h3>
+            <div class="content-box">
+                <h4>JavaScript Frameworks Overview</h4>
+                <p id="textParagraph">
+                    JavaScript is a versatile programming language that powers the web. Modern frameworks like React and Angular have revolutionized frontend development by enabling component-based architectures... 
+                    <span id="extraDots">...</span>
+                    <span id="extraText" style="display:none;"> This allows developers to build scalable single-page applications with high performance, state management, and seamless routing capabilities across all modern browsers.</span>
+                </p>
+                <button id="readMoreBtn" class="btn btn-secondary" onclick="toggleReadMore()">Read More</button>
+            </div>
+        </section>
+
+        <!-- Question 3: Student Details Table with Delete & Edit Form -->
+        <section class="card">
+            <h3>Q3. Student Records Table (Add, Delete & Edit)[span_4](start_span)[span_4](end_span)</h3>
+            
+            <!-- Input Form for Add / Update -->
+            <form id="studentForm" onsubmit="saveStudentRecord(event)">
+                <input type="hidden" id="editIndex" value="-1">
+                <div class="form-row">
+                    <input type="text" id="stdName" placeholder="Student Name" required>
+                    <input type="text" id="stdClass" placeholder="Class / Grade" required>
+                </div>
+                <div class="form-row">
+                    <input type="text" id="stdEmail" placeholder="Email Address" required>
+                    <button type="submit" class="btn btn-accent" id="saveBtn">Add Student Record</button>
+                </div>
+            </form>
+
+            <!-- Table -->
+            <div class="table-container" style="margin-top: 20px;">
+                <table id="studentTable">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Name</th>
+                            <th>Class</th>
+                            <th>Email</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="studentBody">
+                        <!-- Dynamic Rows -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

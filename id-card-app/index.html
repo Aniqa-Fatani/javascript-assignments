@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ID Card Generator Studio</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="main-wrapper">
+        <!-- Header -->
+        <header class="app-header">
+            <span class="badge">SMIT JS Assignment</span>
+            <h1>Digital ID Card Generator</h1>
+            <p id="live-time" class="time-display">Loading date & time...</p>
+        </header>
+
+        <div class="workspace-grid">
+            <!-- Left Panel: Form Input -->
+            <div class="form-card">
+                <h2>Member Information</h2>
+                <form id="idForm" onsubmit="event.preventDefault();">
+                    
+                    <div class="form-group">
+                        <label for="fullName">Full Name</label>
+                        <input type="text" id="fullName" placeholder="e.g. Annie" oninput="updateLivePreview()" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="roleTitle">Role / Designation</label>
+                        <input type="text" id="roleTitle" placeholder="e.g. Web Developer / Student" oninput="updateLivePreview()" required>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="batchCode">Batch / ID No.</label>
+                            <input type="text" id="batchCode" placeholder="e.g. BATCH-10-890" oninput="updateLivePreview()" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="courseName">Course / Campus</label>
+                            <input type="text" id="courseName" placeholder="e.g. Web Development (Saylani)" oninput="updateLivePreview()" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="phoneNum">Phone Number</label>
+                            <input type="text" id="phoneNum" placeholder="e.g. 0300-1234567" oninput="updateLivePreview()">
+                        </div>
+                        <div class="form-group">
+                            <label for="photoUrl">Avatar Image URL</label>
+                            <input type="text" id="photoUrl" placeholder="Image URL (or leave blank)" oninput="updateLivePreview()">
+                        </div>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-primary" onclick="saveCardRecord()">Generate & Save ID Card</button>
+                        <button type="button" class="btn btn-reset" onclick="resetFormInputs()">Reset Form</button>
+                    </div>
+
+                </form>
+            </div>
+
+            <!-- Right Panel: Live Card Preview -->
+            <div class="preview-panel">
+                <h2>Live Card Preview</h2>
+                
+                <div class="id-card-preview" id="idCardBox">
+                    <div class="id-card-header">
+                        <div class="institute-logo">SMIT</div>
+                        <div class="header-text">
+                            <h3>SAYLANI MASS IT TRAINING</h3>
+                            <span>Student / Member Identity Card</span>
+                        </div>
+                    </div>
+
+                    <div class="id-card-body">
+                        <div class="photo-container">
+                            <img id="cardPhoto" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=200" alt="Avatar">
+                        </div>
+                        <div class="details-container">
+                            <h3 id="cardName">Annie</h3>
+                            <p class="role-badge" id="cardRole">Web Developer</p>
+
+                            <div class="info-list">
+                                <p><strong>ID No:</strong> <span id="cardBatch">BATCH-10-890</span></p>
+                                <p><strong>Course:</strong> <span id="cardCourse">Web Development</span></p>
+                                <p><strong>Contact:</strong> <span id="cardPhone">0300-1234567</span></p>
+                                <p><strong>Issued:</strong> <span id="cardIssueDate">2026-10-30</span></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="id-card-footer">
+                        <div class="chip"></div>
+                        <div class="barcode">||| ||||| |||| ||| |||||</div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Registered Cards Table (Ch. 43-48 Events & Deletion) -->
+        <div class="history-section">
+            <div class="history-header">
+                <h3>Registered Members Directory</h3>
+                <button class="btn-clear-all" onclick="clearAllCards()">Clear All Directory</button>
+            </div>
+            <div class="table-container">
+                <table id="cards-table">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>ID Code</th>
+                            <th>Full Name</th>
+                            <th>Role</th>
+                            <th>Course</th>
+                            <th>Date Issued</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="directory-body">
+                        <!-- Dynamic Rows -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
