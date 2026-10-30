@@ -23,6 +23,8 @@ a clean and modular digital archive of JavaScript solutions covering core progra
 | chapter-43-to-48 | events | [view code](./chapter-43%20to%2048) |
 | calculator-app | premium calculator app with advanced math toolkit & history | [view site](https://raw.githack.com/Aniqa-Fatani/javascript-assignments/main/calculator-app/index.html) |
 | counter-app | interactive counter app with state management & live clock | [view site](https://raw.githack.com/Aniqa-Fatani/javascript-assignments/main/counter-app/index.html) |
+| chapter-49-to-52 | events, form handling, read-more & editable table | [view code](./chapter-49%20to%2052) |
+| id-card-app | digital id card generator with live preview & directory | [view site](https://aniqa-fatani.github.io/javascript-assignments/id-card-app/) |
 
 ---
 ## 🛠️ tech stack
