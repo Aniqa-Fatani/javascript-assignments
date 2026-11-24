@@ -25,6 +25,9 @@ a clean and modular digital archive of JavaScript solutions covering core progra
 | counter-app | interactive counter app with state management & live clock | [view site](https://raw.githack.com/Aniqa-Fatani/javascript-assignments/main/counter-app/index.html) |
 | chapter-49-to-52 | events, form handling, read-more & editable table | [view code](./chapter-49%20to%2052) |
 | id-card-app | digital id card generator with live preview & directory | [view site](https://aniqa-fatani.github.io/javascript-assignments/id-card-app/) |
+| Games | fighting game character movement & action animations | [view site](https://aniqa-fatani.github.io/javascript-assignments/Games/) |
+| Post App | interactive post feed with create, edit, delete & member view | [view site](https://aniqa-fatani.github.io/javascript-assignments/Post%20App/) |
+| Light and Dark mode UI | editorial landing page with light & dark theme switching | [view site](https://aniqa-fatani.github.io/javascript-assignments/Light%20and%20Dark%20mode%20UI/) |
 
 ---
 ## 🛠️ tech stack
