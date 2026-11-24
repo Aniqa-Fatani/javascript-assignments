@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gaming Animation — Ryu & Kula Diamond</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+
+        <!-- Top HUD -->
+        <header class="hud">
+            <div class="fighter-badge">
+                <span class="p-tag">P1</span>
+                <strong>RYU</strong>
+                <small>Arrows + Space / J, K, L, U</small>
+            </div>
+
+            <div class="controls-bar">
+                <button type="button" class="hud-btn" onclick="triggerRyuAction('hadoken')">Ryu Hadoken</button>
+                <button type="button" class="hud-btn" onclick="triggerRyuAction('shoryuken')">Ryu Shoryuken</button>
+                <button type="button" class="hud-btn" onclick="triggerKulaAction('freeze')">Kula Freeze</button>
+                <button type="button" class="hud-btn" onclick="triggerKulaAction('special')">Kula Special</button>
+                <button type="button" class="hud-btn reset-btn" onclick="resetArena()">Reset</button>
+            </div>
+
+            <div class="fighter-badge right-align">
+                <span class="p-tag alt">P2</span>
+                <strong>KULA DIAMOND</strong>
+                <small>A / D + W / S / F, G, H, R</small>
+            </div>
+        </header>
+
+        <!-- Action Callout -->
+        <div id="action-banner" class="action-banner">Arena Ready — Press keys or click an action</div>
+
+        <!-- RYU -->
+        <img class="img" id="char1"
+            src="https://www.fightersgeneration.com/characters3/ryu-cvs2-stance.gif"
+            alt="Ryu">
+
+        <!-- KULA DIAMOND -->
+        <img class="img" id="char2"
+            src="assest/gif/kula-kof13-stance.gif"
+            alt="Kula Diamond">
+
+        <!-- Bottom Controls Guide -->
+        <footer class="key-legend">
+            <span><strong>Ryu:</strong> ◀ / ▶ Walk • Space Jump • J Hadoken • K Shoryuken • L Super • U Tie-Belt</span>
+            <span><strong>Kula:</strong> A / D Move • W Jump • S Slide • F Attack • G Freeze • H Special • R Dash Back</span>
+        </footer>
+
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

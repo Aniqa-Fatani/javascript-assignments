@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premium Editorial Curation</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Plus+Jakarta+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+
+    <style>
+        /* --- CSS Custom properties --- */
+        :root {
+            --bg-alabaster: #fbfbfa;
+            --bg-sandstone: #f3efe9;
+            --text-charcoal: #191b1f;
+            --text-muted: #51545a;
+            --text-subtle: #72757a;
+            --text-label: #7c8086;
+            --text-footer: #8c9096;
+            --accent-sienna: #b87d62;
+            --line-divider: rgba(25, 27, 31, 0.08);
+            --input-border: rgba(25, 27, 31, 0.15);
+            --font-display: 'Cinzel', serif;
+            --font-body: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        body.dark-theme {
+            --bg-alabaster: #141518;
+            --bg-sandstone: #1d1f24;
+            --text-charcoal: #f3efe9;
+            --text-muted: #b8bcc4;
+            --text-subtle: #9da2ac;
+            --text-label: #9da2ac;
+            --text-footer: #888d96;
+            --accent-sienna: #c98d72;
+            --line-divider: rgba(251, 251, 250, 0.1);
+            --input-border: rgba(251, 251, 250, 0.2);
+        }
+
+        /* --- Global Reset Framework --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg-alabaster);
+            color: var(--text-charcoal);
+            font-family: var(--font-body);
+            overflow-x: hidden;
+            line-height: 1.6;
+            transition: background-color 0.35s ease, color 0.35s ease;
+        }
+
+        /* --- Global Navigation Header --- */
+        header {
+            padding: 30px 6%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--line-divider);
+            background-color: var(--bg-alabaster);
+            transition: background-color 0.35s ease, border-color 0.35s ease;
+        }
+
+        .logo {
+            font-family: var(--font-display);
+            font-size: 1.4rem;
+            font-weight: 700;
+            letter-spacing: 4px;
+            color: var(--text-charcoal);
+            text-decoration: none;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+        }
+
+        nav a {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-decoration: none;
+            color: var(--text-charcoal);
+            margin-left: 35px;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--accent-sienna);
+        }
+
+        .theme-toggle {
+            margin-left: 35px;
+            padding: 8px 16px;
+            border: 1px solid var(--input-border);
+            background: transparent;
+            color: var(--text-charcoal);
+            font-family: var(--font-body);
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .theme-toggle:hover {
+            border-color: var(--accent-sienna);
+            color: var(--accent-sienna);
+        }
+
+        /* --- Core Layout Main Architecture --- */
+        main {
+            padding: 40px 6% 120px 6%;
+        }
+
+        /* 1. Hero Block Display Clone (cc0b05d7-2e50-483c-97fe-329a3886b81c) */
+        .hero-banner {
+            text-align: center;
+            padding: 120px 20px;
+            margin-bottom: 100px;
+            background-color: var(--bg-sandstone);
+            border: 1px solid var(--line-divider);
+            transition: background-color 0.35s ease, border-color 0.35s ease;
+        }
+
+        .hero-banner h1 {
+            font-family: var(--font-display);
+            font-size: 5.5rem;
+            letter-spacing: 12px;
+            line-height: 1;
+            margin-bottom: 10px;
+            color: var(--text-charcoal);
+        }
+
+        .hero-banner .sub-heading {
+            font-family: var(--font-body);
+            font-size: 1.6rem;
+            font-weight: 400;
+            letter-spacing: 6px;
+            color: var(--accent-sienna);
+            margin-bottom: 25px;
+            text-transform: uppercase;
+        }
+
+        .hero-banner p {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            color: var(--text-subtle);
+            font-weight: 500;
+        }
+
+        /* 2. Split Content Grid Clone (ad62fc5f-2679-4ae1-99d0-53cd8a0b76e1) */
+        .split-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+            margin-bottom: 140px;
+        }
+
+        .grid-text-box h2 {
+            font-family: var(--font-display);
+            font-size: 2.8rem;
+            font-weight: 400;
+            line-height: 1.2;
+            margin-bottom: 25px;
+        }
+
+        .grid-text-box p {
+            font-size: 1.05rem;
+            font-weight: 300;
+            color: var(--text-muted);
+            margin-bottom: 40px;
+        }
+
+        .action-link {
+            display: inline-block;
+            padding: 16px 45px;
+            border: 1px solid var(--text-charcoal);
+            color: var(--text-charcoal);
+            text-decoration: none;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-weight: 500;
+            transition: all 0.4s ease;
+        }
+
+        .action-link:hover {
+            background: var(--text-charcoal);
+            color: var(--bg-alabaster);
+        }
+
+        .grid-media-box {
+            border: 1px solid var(--line-divider);
+            padding: 20px;
+            background: var(--bg-sandstone);
+            transition: background-color 0.35s ease, border-color 0.35s ease;
+        }
+
+        .grid-media-box img {
+            width: 100%;
+            height: 520px;
+            object-fit: cover;
+            display: block;
+            filter: contrast(95%) sepia(5%);
+            transition: all 0.6s ease;
+        }
+
+        .grid-media-box:hover img {
+            transform: scale(1.01);
+            filter: contrast(100%);
+        }
+
+        /* 3. Triple Column Info Blocks Clone (60c55a75-4790-4fd6-ba61-679ef9362720) */
+        .chapters-row {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            margin-bottom: 140px;
+        }
+
+        .chapter-card {
+            background: var(--bg-alabaster);
+            border-top: 2px solid var(--line-divider);
+            padding: 40px 10px;
+            transition: border-color 0.4s ease, background-color 0.35s ease;
+        }
+
+        .chapter-card:hover {
+            border-top-color: var(--accent-sienna);
+        }
+
+        .card-num {
+            font-family: var(--font-display);
+            font-size: 2.2rem;
+            font-weight: 600;
+            color: var(--accent-sienna);
+            display: block;
+            margin-bottom: 15px;
+            line-height: 1;
+        }
+
+        .chapter-card h3 {
+            font-family: var(--font-body);
+            font-weight: 500;
+            font-size: 1.25rem;
+            letter-spacing: 0.5px;
+            margin-bottom: 15px;
+            color: var(--text-charcoal);
+        }
+
+        .chapter-card p {
+            font-size: 0.95rem;
+            font-weight: 300;
+            color: var(--text-muted);
+            line-height: 1.7;
+        }
+
+        /* 4. Form Segment & Input Fields Clone (34539306-bdd1-45ec-b65c-d2da24a790e9) */
+        .form-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            border-top: 1px solid var(--line-divider);
+            padding-top: 80px;
+        }
+
+        .form-info-side h2 {
+            font-family: var(--font-display);
+            font-size: 2.6rem;
+            font-weight: 400;
+            margin-bottom: 20px;
+        }
+
+        .form-info-side p {
+            color: var(--text-muted);
+            font-weight: 300;
+            font-size: 1.05rem;
+        }
+
+        .input-group {
+            position: relative;
+            margin-bottom: 45px;
+        }
+
+        .input-group input, 
+        .input-group textarea {
+            width: 100%;
+            padding: 12px 0;
+            background: transparent;
+            border: none;
+            border-bottom: 1px solid var(--input-border);
+            font-family: var(--font-body);
+            color: var(--text-charcoal);
+            font-size: 1rem;
+            outline: none;
+        }
+
+        /* Clean pure-CSS field underline element */
+        .input-line-accent {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0%;
+            height: 1.5px;
+            background-color: var(--accent-sienna);
+            transition: width 0.4s ease;
+        }
+
+        .input-group input:focus ~ .input-line-accent,
+        .input-group textarea:focus ~ .input-line-accent {
+            width: 100%;
+        }
+
+        .input-group label {
+            position: absolute;
+            top: 12px;
+            left: 0;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--text-label);
+            transition: all 0.3s ease;
+            pointer-events: none;
+        }
+
+        .input-group input:focus ~ label,
+        .input-group input:not(:placeholder-shown) ~ label,
+        .input-group textarea:focus ~ label,
+        .input-group textarea:not(:placeholder-shown) ~ label {
+            top: -15px;
+            font-size: 0.7rem;
+            color: var(--accent-sienna);
+            font-weight: 500;
+        }
+
+        .submit-action {
+            background: var(--text-charcoal);
+            color: var(--bg-alabaster);
+            border: none;
+            padding: 16px 50px;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .submit-action:hover {
+            background: var(--accent-sienna);
+            color: var(--bg-alabaster);
+        }
+
+        /* --- Footer Framework Node --- */
+        footer {
+            text-align: center;
+            padding: 60px 0;
+            border-top: 1px solid var(--line-divider);
+            font-size: 0.75rem;
+            letter-spacing: 2px;
+            color: var(--text-footer);
+            text-transform: uppercase;
+        }
+
+        /* --- Viewport Media Adaptations --- */
+        @media (max-width: 950px) {
+            .hero-banner h1 { font-size: 3.5rem; }
+            .split-grid, .chapters-row, .form-layout {
+                grid-template-columns: 1fr;
+                gap: 50px;
+            }
+            .grid-media-box img { height: 360px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="#" class="logo">VALOIS</a>
+        <nav>
+            <a href="#showroom">Collection</a>
+            <a href="#chapters">Chapters</a>
+            <a href="#connect">Inquire</a>
+            <button type="button" class="theme-toggle" id="themeToggle" onclick="toggleTheme()">Dark Mode</button>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero-banner">
+            <h1>VALOIS</h1>
+            <div class="sub-heading">SUMMER REFRESH</div>
+            <p>Up to 70% structural workspace efficiency optimizations</p>
+        </section>
+
+        <section class="split-grid" id="showroom">
+            <div class="grid-text-box">
+                <h2>Bespoke Architectural Layouts.</h2>
+                <p>Premium aesthetics are defined by breathing room. By prioritizing white space and sophisticated serif fonts, the page architecture easily commands user attention without visual noise.</p>
+                <a href="#connect" class="action-link">Initialize Curation</a>
+            </div>
+            <div class="grid-media-box">
+                <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80" alt="Bespoke Spatial Design Presentation">
+            </div>
+        </section>
+
+        <section class="chapters-row" id="chapters">
+            
+            <article class="chapter-card">
+                <span class="card-num">I</span>
+                <h3>Awesome Interiors</h3>
+                <p>Every interface division is carefully calculated. Providing clean borders improves structural scannability and gives your design premium technical merit.</p>
+            </article>
+
+            <article class="chapter-card">
+                <span class="card-num">II</span>
+                <h3>Fresh & Creative</h3>
+                <p>Minimalist changes stand out. Swapping raw bright colors for muted Sienna clay outlines grounds your interface in high-end design principles.</p>
+            </article>
+
+            <article class="chapter-card">
+                <span class="card-num">III</span>
+                <h3>Exemplary Service</h3>
+                <p>Fully fluid viewport configuration. Clean native styling ensures images, fonts, and text align beautifully on any tablet or smartphone screens.</p>
+            </article>
+
+        </section>
+
+        <section class="form-layout" id="connect">
+            <div class="form-info-side">
+                <h2>Connect With Us</h2>
+                <p>Submit an inquiry to receive our digital portfolio layout guidelines or architectural theme notes.</p>
+            </div>
+            
+            <form action="#" method="POST">
+                <div class="input-group">
+                    <input type="text" id="name" placeholder=" " required>
+                    <span class="input-line-accent"></span>
+                    <label for="name">Full Name</label>
+                </div>
+
+                <div class="input-group">
+                    <input type="email" id="email" placeholder=" " required>
+                    <span class="input-line-accent"></span>
+                    <label for="email">Email Address</label>
+                </div>
+
+                <div class="input-group">
+                    <textarea id="msg" rows="4" placeholder=" " required></textarea>
+                    <span class="input-line-accent"></span>
+                    <label for="msg">Message Details</label>
+                </div>
+
+                <button type="submit" class="submit-action">Submit Inquiry</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Valois Studio Portfolio. Built with Premium Lightweight Syntax.</p>
+    </footer>
+
+    <script>
+        function toggleTheme() {
+            var body = document.body;
+            var btn = document.getElementById("themeToggle");
+            body.classList.toggle("dark-theme");
+
+            if (body.classList.contains("dark-theme")) {
+                btn.innerText = "Light Mode";
+            } else {
+                btn.innerText = "Dark Mode";
+            }
+        }
+    </script>
+
+</body>
+</html>

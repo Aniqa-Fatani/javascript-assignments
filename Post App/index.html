@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vespera — Post App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="navbar">
+        <a href="#" class="brand" onclick="switchView('feed'); return false;">Vespera</a>
+        <nav class="nav-links">
+            <button type="button" class="nav-btn active" id="nav-feed" onclick="switchView('feed')">Home</button>
+            <button type="button" class="nav-btn" id="nav-create" onclick="switchView('create')">+ Post</button>
+            <button type="button" class="nav-btn" id="nav-auth" onclick="switchView('auth')">SignUp / Login</button>
+        </nav>
+    </header>
+
+    <main class="container">
+
+        <!-- FEED VIEW -->
+        <section id="view-feed" class="view active">
+            <div class="hero-quote">
+                <p>"Don't just scroll — drop your thoughts, notes, or daily wins here."</p>
+                <span id="feed-date" class="meta-date"></span>
+            </div>
+
+            <div class="toolbar">
+                <span id="post-count" class="count-pill">0 Posts</span>
+                <button type="button" class="btn-outline" onclick="switchView('create')">Create New Post</button>
+            </div>
+
+            <div id="posts-list" class="posts-list"></div>
+        </section>
+
+        <!-- CREATE / EDIT POST VIEW -->
+        <section id="view-create" class="view">
+            <div class="hero-quote">
+                <p id="form-heading-quote">"We'd love to see your take. Hit publish and share what's on your mind."</p>
+            </div>
+
+            <form id="post-form" class="panel" onsubmit="handlePostSubmit(event)">
+                <h2 id="form-title">Create a Post</h2>
+                <input type="hidden" id="edit-post-id" value="">
+
+                <div class="field">
+                    <label for="post-title">Title</label>
+                    <input type="text" id="post-title" placeholder="Enter your title here..." required>
+                </div>
+
+                <div class="field">
+                    <label for="post-desc">Description</label>
+                    <textarea id="post-desc" rows="5" placeholder="What's on your mind..." required></textarea>
+                </div>
+
+                <div class="field">
+                    <label>Card Accent Swatch</label>
+                    <div id="swatch-picker" class="swatch-row">
+                        <button type="button" class="swatch selected" data-theme="terracotta" onclick="selectSwatch('terracotta', this)">Terracotta</button>
+                        <button type="button" class="swatch" data-theme="sage" onclick="selectSwatch('sage', this)">Sage</button>
+                        <button type="button" class="swatch" data-theme="ochre" onclick="selectSwatch('ochre', this)">Ochre</button>
+                        <button type="button" class="swatch" data-theme="slate" onclick="selectSwatch('slate', this)">Slate</button>
+                        <button type="button" class="swatch" data-theme="plum" onclick="selectSwatch('plum', this)">Plum</button>
+                    </div>
+                </div>
+
+                <div class="form-buttons">
+                    <button type="submit" class="btn-primary" id="submit-post-btn">Post</button>
+                    <button type="button" class="btn-ghost" onclick="cancelPostForm()">Cancel</button>
+                </div>
+            </form>
+        </section>
+
+        <!-- SIGNUP / LOGIN & MEMBER CARD VIEW -->
+        <section id="view-auth" class="view">
+            <div id="auth-card-box" class="panel auth-panel">
+                <div class="auth-tabs">
+                    <button type="button" class="tab-btn active" id="tab-signup" onclick="switchAuthTab('signup')">Sign up</button>
+                    <button type="button" class="tab-btn" id="tab-login" onclick="switchAuthTab('login')">Login</button>
+                </div>
+
+                <form id="signup-form" onsubmit="handleSignup(event)">
+                    <div class="field">
+                        <label for="su-username">Username</label>
+                        <input type="text" id="su-username" placeholder="e.g. aniqa_f" required>
+                    </div>
+                    <div class="field">
+                        <label for="su-email">Email</label>
+                        <input type="email" id="su-email" placeholder="name@example.com" required>
+                    </div>
+                    <div class="field">
+                        <label for="su-password">Password</label>
+                        <input type="password" id="su-password" placeholder="Create a password" required>
+                    </div>
+                    <button type="submit" class="btn-primary full-width">Sign up</button>
+                </form>
+
+                <form id="login-form" style="display: none;" onsubmit="handleLogin(event)">
+                    <div class="field">
+                        <label for="li-email">Email</label>
+                        <input type="email" id="li-email" placeholder="name@example.com" required>
+                    </div>
+                    <div class="field">
+                        <label for="li-password">Password</label>
+                        <input type="password" id="li-password" placeholder="Enter password" required>
+                    </div>
+                    <button type="submit" class="btn-primary full-width">Login</button>
+                </form>
+
+                <p id="auth-message" class="auth-msg"></p>
+            </div>
+
+            <div id="member-badge-card" class="member-card" style="display: none;">
+                <div class="member-top">
+                    <span class="member-tag">ACTIVE MEMBER</span>
+                    <span class="member-status">Status: Active</span>
+                </div>
+                <h2 id="member-name">Member Name</h2>
+                <div class="member-details">
+                    <div><span>Email</span><strong id="member-email">—</strong></div>
+                    <div><span>Handle</span><strong id="member-handle">—</strong></div>
+                </div>
+                <div class="member-footer">
+                    <span>Verified Pass</span>
+                    <button type="button" class="btn-ghost small" onclick="logoutMember()">Switch Account</button>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <script src="app.js"></script>
+</body>
+</html>

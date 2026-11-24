@@ -1,0 +1,173 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    overflow: hidden;
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    background: #0b0f17;
+    color: #f8fafc;
+}
+
+.container {
+    width: 100%;
+    height: 100vh;
+    background-image: url("https://i.pinimg.com/originals/c7/f4/b7/c7f4b7922cad40cd75fb214a63bec12d.gif");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Top HUD */
+.hud {
+    position: relative;
+    z-index: 5;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 24px;
+    background: rgba(11, 15, 23, 0.78);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+    flex-wrap: wrap;
+}
+
+.fighter-badge {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.fighter-badge.right-align {
+    align-items: flex-end;
+}
+
+.p-tag {
+    display: inline-block;
+    width: fit-content;
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 2px 7px;
+    border-radius: 4px;
+    background: #ef4444;
+    color: #fff;
+}
+
+.p-tag.alt {
+    background: #0ea5e9;
+}
+
+.fighter-badge strong {
+    font-size: 0.95rem;
+    letter-spacing: 0.06em;
+}
+
+.fighter-badge small {
+    font-size: 0.72rem;
+    color: #cbd5e1;
+}
+
+.controls-bar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: center;
+}
+
+.hud-btn {
+    padding: 7px 12px;
+    border-radius: 6px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: rgba(30, 41, 59, 0.9);
+    color: #f8fafc;
+    font-size: 0.78rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.15s ease;
+}
+
+.hud-btn:hover {
+    background: #334155;
+    transform: translateY(-1px);
+}
+
+.hud-btn.reset-btn {
+    background: rgba(239, 68, 68, 0.25);
+    border-color: rgba(239, 68, 68, 0.5);
+    color: #fca5a5;
+}
+
+/* Action Banner */
+.action-banner {
+    position: relative;
+    z-index: 4;
+    margin: 14px auto 0;
+    width: fit-content;
+    padding: 6px 16px;
+    border-radius: 20px;
+    background: rgba(15, 23, 42, 0.75);
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    font-size: 0.8rem;
+    letter-spacing: 0.04em;
+    color: #e2e8f0;
+}
+
+/* Fighters */
+.img {
+    height: 200px;
+    position: absolute;
+    bottom: 70px;
+    transition: transform 0.12s ease;
+    user-select: none;
+}
+
+#char1 {
+    left: 30px;
+}
+
+#char2 {
+    left: auto;
+    right: 30px;
+}
+
+/* JUMP ANIMATION */
+.jump {
+    animation: jump 0.6s ease-in-out;
+}
+
+@keyframes jump {
+    0% {
+        bottom: 70px;
+    }
+    50% {
+        bottom: 250px;
+    }
+    100% {
+        bottom: 70px;
+    }
+}
+
+/* Bottom Key Legend */
+.key-legend {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 5;
+    width: calc(100% - 32px);
+    max-width: 1100px;
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 8px 16px;
+    border-radius: 8px;
+    background: rgba(11, 15, 23, 0.75);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    font-size: 0.74rem;
+    color: #cbd5e1;
+    flex-wrap: wrap;
+}
